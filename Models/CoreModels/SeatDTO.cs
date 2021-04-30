@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using BookMyShow.Models.Enums;
-namespace BookMyShow.Models.CoreModels
+﻿
+namespace Models.CoreModels
 {
     public class SeatDTO
     {

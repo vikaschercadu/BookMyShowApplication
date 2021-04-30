@@ -2,7 +2,7 @@
 <#
 	// Settings
     ConnectionStringName = "";			// Uses last connection string in config if not specified
-    Namespace = "BookMyShow.Models";
+    Namespace = "";
     RepoName = "";
     GenerateOperations = true;
 	GeneratePocos = true;

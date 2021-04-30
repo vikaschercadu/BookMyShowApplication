@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace BookMyShow.Models.Enums
+﻿
+namespace Models.Enums
 {
     public enum SeatStatus
     {

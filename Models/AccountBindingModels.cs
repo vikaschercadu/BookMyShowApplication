@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace BookMyShow.Models
+namespace Models
 {
     // Models used as parameters to AccountController actions.
 

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using BookMyShow.Models.Enums;
-namespace BookMyShow.Models.CoreModels
+using Models.Enums;
+namespace Models.CoreModels
 {
     public class MovieTicketDTO
     {

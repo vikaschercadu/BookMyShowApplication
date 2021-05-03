@@ -1,29 +1,29 @@
-﻿CREATE TABLE [dbo].[show] (
-    [id]             INT          NOT NULL,
-    [showDate]       DATE         NOT NULL,
-    [startTime]      VARCHAR (8)  NOT NULL,
-    [endTime]        VARCHAR (8)  NULL,
-    [screenId]       INT          NOT NULL,
-    [movieId]        INT          NOT NULL,
-    [createdOn]      DATETIME     DEFAULT (sysdatetime()) NOT NULL,
-    [createdBy]      VARCHAR (30) DEFAULT (user_name()) NOT NULL,
-    [lastModifiedOn] DATETIME     DEFAULT (sysdatetime()) NOT NULL,
-    [lastModifiedBy] VARCHAR (30) DEFAULT (user_name()) NOT NULL,
-    CONSTRAINT [PK_show] PRIMARY KEY CLUSTERED ([id] ASC, [showDate] ASC),
-    CONSTRAINT [FK_show_movie] FOREIGN KEY ([movieId]) REFERENCES [dbo].[movie] ([id]),
-    CONSTRAINT [FK_show_screen] FOREIGN KEY ([screenId]) REFERENCES [dbo].[screen] ([id])
+﻿CREATE TABLE [dbo].[Show] (
+    [Id]             INT          NOT NULL,
+    [ShowDate]       DATE         NOT NULL,
+    [StartTime]      VARCHAR (8)  NOT NULL,
+    [EndTime]        VARCHAR (8)  NULL,
+    [ScreenId]       INT          NOT NULL,
+    [MovieId]        INT          NOT NULL,
+    [CreatedOn]      DATETIME     DEFAULT (sysdatetime()) NOT NULL,
+    [CreatedBy]      VARCHAR (30) DEFAULT (user_name()) NOT NULL,
+    [LastModifiedOn] DATETIME     DEFAULT (sysdatetime()) NOT NULL,
+    [LastModifiedBy] VARCHAR (30) DEFAULT (user_name()) NOT NULL,
+    CONSTRAINT [PK_Show] PRIMARY KEY CLUSTERED ([Id] ASC, [ShowDate] ASC),
+    CONSTRAINT [FK_Show_Movie] FOREIGN KEY ([MovieId]) REFERENCES [dbo].[Movie] ([Id]),
+    CONSTRAINT [FK_Show_Screen] FOREIGN KEY ([ScreenId]) REFERENCES [dbo].[Screen] ([Id])
 );
 
 
 GO
 
-CREATE TRIGGER [dbo].[Trigger_show]
-    ON [dbo].[show]
+CREATE TRIGGER [dbo].[Trigger_Show]
+    ON [dbo].[Show]
     FOR UPDATE
     AS
     BEGIN
-        UPDATE [dbo].[show]
-        SET lastModifiedOn = SYSDATETIME(), lastModifiedBy =USER
+        UPDATE [dbo].[Show]
+        SET LastModifiedOn = SYSDATETIME(), LastModifiedBy =USER
         FROM Inserted i
-        WHERE show.id = i.id
+        WHERE Show.Id = i.Id
     END

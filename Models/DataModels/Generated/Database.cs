@@ -26,7 +26,7 @@
 // 
 //     Connection String Name: `connString`
 //     Provider:               `System.Data.SqlClient`
-//     Connection String:      `Data Source=VIKASC-PC\SQLEXPRESS;Initial Catalog=BookMyShow1;Integrated Security=True`
+//     Connection String:      `Data Source=VIKASC-PC\SQLEXPRESS;Initial Catalog=BookMyShow2;Integrated Security=True`
 //     Schema:                 ``
 //     Include Views:          `False`
 
@@ -137,69 +137,69 @@ namespace connString
 
     
 
-	[TableName("dbo.address")]
+	[TableName("dbo.Address")]
 
 
 
-	[PrimaryKey("id", AutoIncrement=false)]
+	[PrimaryKey("Id", AutoIncrement=false)]
 
 
 	[ExplicitColumns]
 
-    public partial class address : connStringDB.Record<address>  
+    public partial class Address : connStringDB.Record<Address>  
     {
 
 
 
-		[Column] public int id { get; set; }
+		[Column] public int Id { get; set; }
 
 
 
 
 
-		[Column] public string buildingNumber { get; set; }
+		[Column] public string BuildingNumber { get; set; }
 
 
 
 
 
-		[Column] public string streetName { get; set; }
+		[Column] public string StreetName { get; set; }
 
 
 
 
 
-		[Column] public string landmark { get; set; }
+		[Column] public string Landmark { get; set; }
 
 
 
 
 
-		[Column] public int cityId { get; set; }
+		[Column] public int CityId { get; set; }
 
 
 
 
 
-		[Column] public DateTime createdOn { get; set; }
+		[Column] public DateTime CreatedOn { get; set; }
 
 
 
 
 
-		[Column] public string createdBy { get; set; }
+		[Column] public string CreatedBy { get; set; }
 
 
 
 
 
-		[Column] public DateTime lastModifiedOn { get; set; }
+		[Column] public DateTime LastModifiedOn { get; set; }
 
 
 
 
 
-		[Column] public string lastModifiedBy { get; set; }
+		[Column] public string LastModifiedBy { get; set; }
 
 
 
@@ -207,63 +207,63 @@ namespace connString
 
     
 
-	[TableName("dbo.city")]
+	[TableName("dbo.City")]
 
 
 
-	[PrimaryKey("id", AutoIncrement=false)]
+	[PrimaryKey("Id", AutoIncrement=false)]
 
 
 	[ExplicitColumns]
 
-    public partial class city : connStringDB.Record<city>  
+    public partial class City : connStringDB.Record<City>  
     {
 
 
 
-		[Column] public int id { get; set; }
+		[Column] public int Id { get; set; }
 
 
 
 
 
-		[Column] public string name { get; set; }
+		[Column] public string Name { get; set; }
 
 
 
 
 
-		[Column] public string state { get; set; }
+		[Column] public string State { get; set; }
 
 
 
 
 
-		[Column] public string pincode { get; set; }
+		[Column] public string Pincode { get; set; }
 
 
 
 
 
-		[Column] public DateTime createdOn { get; set; }
+		[Column] public DateTime CreatedOn { get; set; }
 
 
 
 
 
-		[Column] public string createdBy { get; set; }
+		[Column] public string CreatedBy { get; set; }
 
 
 
 
 
-		[Column] public DateTime lastModifiedOn { get; set; }
+		[Column] public DateTime LastModifiedOn { get; set; }
 
 
 
 
 
-		[Column] public string lastModifiedBy { get; set; }
+		[Column] public string LastModifiedBy { get; set; }
 
 
 
@@ -271,81 +271,81 @@ namespace connString
 
     
 
-	[TableName("dbo.movie")]
+	[TableName("dbo.Movie")]
 
 
 
-	[PrimaryKey("id", AutoIncrement=false)]
+	[PrimaryKey("Id", AutoIncrement=false)]
 
 
 	[ExplicitColumns]
 
-    public partial class movie : connStringDB.Record<movie>  
+    public partial class Movie : connStringDB.Record<Movie>  
     {
 
 
 
-		[Column] public int id { get; set; }
+		[Column] public int Id { get; set; }
 
 
 
 
 
-		[Column] public string title { get; set; }
+		[Column] public string Title { get; set; }
 
 
 
 
 
-		[Column] public string language { get; set; }
+		[Column] public string Language { get; set; }
 
 
 
 
 
-		[Column] public string genre { get; set; }
+		[Column] public string Genre { get; set; }
 
 
 
 
 
-		[Column] public string runningTime { get; set; }
+		[Column] public string RunningTime { get; set; }
 
 
 
 
 
-		[Column] public DateTime releaseDate { get; set; }
+		[Column] public DateTime ReleaseDate { get; set; }
 
 
 
 
 
-		[Column] public string imageUrl { get; set; }
+		[Column] public string ImageUrl { get; set; }
 
 
 
 
 
-		[Column] public DateTime createdOn { get; set; }
+		[Column] public DateTime CreatedOn { get; set; }
 
 
 
 
 
-		[Column] public string createdBy { get; set; }
+		[Column] public string CreatedBy { get; set; }
 
 
 
 
 
-		[Column] public DateTime lastModifiedOn { get; set; }
+		[Column] public DateTime LastModifiedOn { get; set; }
 
 
 
 
 
-		[Column] public string lastModifiedBy { get; set; }
+		[Column] public string LastModifiedBy { get; set; }
 
 
 
@@ -353,57 +353,57 @@ namespace connString
 
     
 
-	[TableName("dbo.movieTicket")]
+	[TableName("dbo.MovieTicket")]
 
 
 
-	[PrimaryKey("id", AutoIncrement=false)]
+	[PrimaryKey("Id", AutoIncrement=false)]
 
 
 	[ExplicitColumns]
 
-    public partial class movieTicket : connStringDB.Record<movieTicket>  
+    public partial class MovieTicket : connStringDB.Record<MovieTicket>  
     {
 
 
 
-		[Column] public int id { get; set; }
+		[Column] public int Id { get; set; }
 
 
 
 
 
-		[Column] public int userId { get; set; }
+		[Column] public int UserId { get; set; }
 
 
 
 
 
-		[Column] public string seatNumber { get; set; }
+		[Column] public string SeatNumber { get; set; }
 
 
 
 
 
-		[Column] public int showId { get; set; }
+		[Column] public int ShowId { get; set; }
 
 
 
 
 
-		[Column] public DateTime showDate { get; set; }
+		[Column] public DateTime ShowDate { get; set; }
 
 
 
 
 
-		[Column] public int screenId { get; set; }
+		[Column] public int ScreenId { get; set; }
 
 
 
 
 
-		[Column] public int status { get; set; }
+		[Column] public int Status { get; set; }
 
 
 
@@ -415,7 +415,7 @@ namespace connString
 
 
 
-		[Column] public double convenienceFee { get; set; }
+		[Column] public double ConvenienceFee { get; set; }
 
 
 
@@ -427,25 +427,25 @@ namespace connString
 
 
 
-		[Column] public DateTime createdOn { get; set; }
+		[Column] public DateTime CreatedOn { get; set; }
 
 
 
 
 
-		[Column] public string createdBy { get; set; }
+		[Column] public string CreatedBy { get; set; }
 
 
 
 
 
-		[Column] public DateTime lastModifiedOn { get; set; }
+		[Column] public DateTime LastModifiedOn { get; set; }
 
 
 
 
 
-		[Column] public string lastModifiedBy { get; set; }
+		[Column] public string LastModifiedBy { get; set; }
 
 
 
@@ -453,75 +453,75 @@ namespace connString
 
     
 
-	[TableName("dbo.screen")]
+	[TableName("dbo.Screen")]
 
 
 
-	[PrimaryKey("id", AutoIncrement=false)]
+	[PrimaryKey("Id", AutoIncrement=false)]
 
 
 	[ExplicitColumns]
 
-    public partial class screen : connStringDB.Record<screen>  
+    public partial class Screen : connStringDB.Record<Screen>  
     {
 
 
 
-		[Column] public int id { get; set; }
+		[Column] public int Id { get; set; }
 
 
 
 
 
-		[Column] public int number { get; set; }
+		[Column] public int Number { get; set; }
 
 
 
 
 
-		[Column] public int totalNoOfSeats { get; set; }
+		[Column] public int TotalNoOfSeats { get; set; }
 
 
 
 
 
-		[Column] public string screenResolution { get; set; }
+		[Column] public string ScreenResolution { get; set; }
 
 
 
 
 
-		[Column] public string soundSystem { get; set; }
+		[Column] public string SoundSystem { get; set; }
 
 
 
 
 
-		[Column] public int theatreId { get; set; }
+		[Column] public int TheatreId { get; set; }
 
 
 
 
 
-		[Column] public DateTime createdOn { get; set; }
+		[Column] public DateTime CreatedOn { get; set; }
 
 
 
 
 
-		[Column] public string createdBy { get; set; }
+		[Column] public string CreatedBy { get; set; }
 
 
 
 
 
-		[Column] public DateTime lastModifiedOn { get; set; }
+		[Column] public DateTime LastModifiedOn { get; set; }
 
 
 
 
 
-		[Column] public string lastModifiedBy { get; set; }
+		[Column] public string LastModifiedBy { get; set; }
 
 
 
@@ -529,7 +529,7 @@ namespace connString
 
     
 
-	[TableName("dbo.seat")]
+	[TableName("dbo.Seat")]
 
 
 
@@ -538,7 +538,7 @@ namespace connString
 
 	[ExplicitColumns]
 
-    public partial class seat : connStringDB.Record<seat>  
+    public partial class Seat : connStringDB.Record<Seat>  
     {
 
 
@@ -549,31 +549,31 @@ namespace connString
 
 
 
-		[Column] public int screenId { get; set; }
+		[Column] public int ScreenId { get; set; }
 
 
 
 
 
-		[Column] public DateTime createdOn { get; set; }
+		[Column] public DateTime CreatedOn { get; set; }
 
 
 
 
 
-		[Column] public string createdBy { get; set; }
+		[Column] public string CreatedBy { get; set; }
 
 
 
 
 
-		[Column] public DateTime lastModifiedOn { get; set; }
+		[Column] public DateTime LastModifiedOn { get; set; }
 
 
 
 
 
-		[Column] public string lastModifiedBy { get; set; }
+		[Column] public string LastModifiedBy { get; set; }
 
 
 
@@ -581,75 +581,75 @@ namespace connString
 
     
 
-	[TableName("dbo.show")]
+	[TableName("dbo.Show")]
 
 
 
-	[PrimaryKey("id", AutoIncrement=false)]
+	[PrimaryKey("Id", AutoIncrement=false)]
 
 
 	[ExplicitColumns]
 
-    public partial class show : connStringDB.Record<show>  
+    public partial class Show : connStringDB.Record<Show>  
     {
 
 
 
-		[Column] public int id { get; set; }
+		[Column] public int Id { get; set; }
 
 
 
 
 
-		[Column] public DateTime showDate { get; set; }
+		[Column] public DateTime ShowDate { get; set; }
 
 
 
 
 
-		[Column] public string startTime { get; set; }
+		[Column] public string StartTime { get; set; }
 
 
 
 
 
-		[Column] public string endTime { get; set; }
+		[Column] public string EndTime { get; set; }
 
 
 
 
 
-		[Column] public int screenId { get; set; }
+		[Column] public int ScreenId { get; set; }
 
 
 
 
 
-		[Column] public int movieId { get; set; }
+		[Column] public int MovieId { get; set; }
 
 
 
 
 
-		[Column] public DateTime createdOn { get; set; }
+		[Column] public DateTime CreatedOn { get; set; }
 
 
 
 
 
-		[Column] public string createdBy { get; set; }
+		[Column] public string CreatedBy { get; set; }
 
 
 
 
 
-		[Column] public DateTime lastModifiedOn { get; set; }
+		[Column] public DateTime LastModifiedOn { get; set; }
 
 
 
 
 
-		[Column] public string lastModifiedBy { get; set; }
+		[Column] public string LastModifiedBy { get; set; }
 
 
 
@@ -657,69 +657,69 @@ namespace connString
 
     
 
-	[TableName("dbo.theatre")]
+	[TableName("dbo.Theatre")]
 
 
 
-	[PrimaryKey("id", AutoIncrement=false)]
+	[PrimaryKey("Id", AutoIncrement=false)]
 
 
 	[ExplicitColumns]
 
-    public partial class theatre : connStringDB.Record<theatre>  
+    public partial class Theatre : connStringDB.Record<Theatre>  
     {
 
 
 
-		[Column] public int id { get; set; }
+		[Column] public int Id { get; set; }
 
 
 
 
 
-		[Column] public string name { get; set; }
+		[Column] public string Name { get; set; }
 
 
 
 
 
-		[Column] public int noOfScreens { get; set; }
+		[Column] public int NoOfScreens { get; set; }
 
 
 
 
 
-		[Column] public bool isParkingAvailable { get; set; }
+		[Column] public bool IsParkingAvailable { get; set; }
 
 
 
 
 
-		[Column] public int addressId { get; set; }
+		[Column] public int AddressId { get; set; }
 
 
 
 
 
-		[Column] public DateTime createdOn { get; set; }
+		[Column] public DateTime CreatedOn { get; set; }
 
 
 
 
 
-		[Column] public string createdBy { get; set; }
+		[Column] public string CreatedBy { get; set; }
 
 
 
 
 
-		[Column] public DateTime lastModifiedOn { get; set; }
+		[Column] public DateTime LastModifiedOn { get; set; }
 
 
 
 
 
-		[Column] public string lastModifiedBy { get; set; }
+		[Column] public string LastModifiedBy { get; set; }
 
 
 
@@ -727,63 +727,63 @@ namespace connString
 
     
 
-	[TableName("dbo.user")]
+	[TableName("dbo.User")]
 
 
 
-	[PrimaryKey("id", AutoIncrement=false)]
+	[PrimaryKey("Id", AutoIncrement=false)]
 
 
 	[ExplicitColumns]
 
-    public partial class user : connStringDB.Record<user>  
+    public partial class User : connStringDB.Record<User>  
     {
 
 
 
-		[Column] public int id { get; set; }
+		[Column] public int Id { get; set; }
 
 
 
 
 
-		[Column] public string name { get; set; }
+		[Column] public string Name { get; set; }
 
 
 
 
 
-		[Column] public string emailId { get; set; }
+		[Column] public string EmailId { get; set; }
 
 
 
 
 
-		[Column] public string mobileNumber { get; set; }
+		[Column] public string MobileNumber { get; set; }
 
 
 
 
 
-		[Column] public DateTime createdOn { get; set; }
+		[Column] public DateTime CreatedOn { get; set; }
 
 
 
 
 
-		[Column] public string createdBy { get; set; }
+		[Column] public string CreatedBy { get; set; }
 
 
 
 
 
-		[Column] public DateTime lastModifiedOn { get; set; }
+		[Column] public DateTime LastModifiedOn { get; set; }
 
 
 
 
 
-		[Column] public string lastModifiedBy { get; set; }
+		[Column] public string LastModifiedBy { get; set; }
 
 
 

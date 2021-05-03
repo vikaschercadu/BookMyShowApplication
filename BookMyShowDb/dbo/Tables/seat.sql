@@ -1,24 +1,24 @@
-﻿CREATE TABLE [dbo].[seat] (
+﻿CREATE TABLE [dbo].[Seat] (
     [number]         VARCHAR (4)  NOT NULL,
-    [screenId]       INT          NOT NULL,
-    [createdOn]      DATETIME     DEFAULT (sysdatetime()) NOT NULL,
-    [createdBy]      VARCHAR (30) DEFAULT (user_name()) NOT NULL,
-    [lastModifiedOn] DATETIME     DEFAULT (sysdatetime()) NOT NULL,
-    [lastModifiedBy] VARCHAR (30) DEFAULT (user_name()) NOT NULL,
-    CONSTRAINT [PK_seat] PRIMARY KEY CLUSTERED ([number] ASC, [screenId] ASC),
-    CONSTRAINT [FK_seat_screen] FOREIGN KEY ([screenId]) REFERENCES [dbo].[screen] ([id])
+    [ScreenId]       INT          NOT NULL,
+    [CreatedOn]      DATETIME     DEFAULT (sysdatetime()) NOT NULL,
+    [CreatedBy]      VARCHAR (30) DEFAULT (user_name()) NOT NULL,
+    [LastModifiedOn] DATETIME     DEFAULT (sysdatetime()) NOT NULL,
+    [LastModifiedBy] VARCHAR (30) DEFAULT (user_name()) NOT NULL,
+    CONSTRAINT [PK_Seat] PRIMARY KEY CLUSTERED ([Number] ASC, [ScreenId] ASC),
+    CONSTRAINT [FK_Seat_Screen] FOREIGN KEY ([ScreenId]) REFERENCES [dbo].[Screen] ([Id])
 );
 
 
 GO
 
-CREATE TRIGGER [dbo].[Trigger_seat]
-    ON [dbo].[seat]
+CREATE TRIGGER [dbo].[Trigger_Seat]
+    ON [dbo].[Seat]
     FOR UPDATE
     AS
     BEGIN
-        UPDATE [dbo].[seat]
-        SET lastModifiedOn = SYSDATETIME(), lastModifiedBy =USER
+        UPDATE [dbo].[Seat]
+        SET LastModifiedOn = SYSDATETIME(), LastModifiedBy =USER
         FROM Inserted i
-        WHERE seat.number = i.number
+        WHERE Seat.Number = i.Number
     END

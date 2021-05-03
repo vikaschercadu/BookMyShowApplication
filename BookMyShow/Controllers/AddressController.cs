@@ -4,36 +4,46 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-
+using Services.AddressService;
+using Models.CoreModels;
 namespace BookMyShow.Controllers
 {
     public class AddressController : ApiController
     {
-        // GET: api/Address
-        public IEnumerable<string> Get()
+        private readonly IAddressService AddressService;
+        public AddressController(IAddressService addressService)
         {
-            return new string[] { "value1", "value2" };
+            AddressService = addressService;
+
+        }
+        // GET: api/Address
+        public IEnumerable<AddressDTO> Get()
+        {
+            return AddressService.GetAddresses();
         }
 
         // GET: api/Address/5
-        public string Get(int id)
+        public AddressDTO Get(int id)
         {
-            return "value";
+            return AddressService.GetAddress(id);
         }
 
         // POST: api/Address
-        public void Post([FromBody]string value)
+        public void Post(AddressDTO addressDTO)
         {
+            AddressService.PostAddress(addressDTO);
         }
 
         // PUT: api/Address/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id,AddressDTO addressDTO)
         {
+            AddressService.PutAddress(id, addressDTO);
         }
 
         // DELETE: api/Address/5
         public void Delete(int id)
         {
+            AddressService.DeleteAddress(id);
         }
     }
 }

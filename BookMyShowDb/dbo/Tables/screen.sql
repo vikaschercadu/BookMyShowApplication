@@ -1,28 +1,28 @@
-﻿CREATE TABLE [dbo].[screen] (
-    [id]               INT          NOT NULL,
-    [number]           INT          NOT NULL,
-    [totalNoOfSeats]   INT          NOT NULL,
-    [screenResolution] VARCHAR (30) NOT NULL,
-    [soundSystem]      VARCHAR (30) NOT NULL,
-    [theatreId]        INT          NOT NULL,
-    [createdOn]        DATETIME     DEFAULT (sysdatetime()) NOT NULL,
-    [createdBy]        VARCHAR (30) DEFAULT (user_name()) NOT NULL,
-    [lastModifiedOn]   DATETIME     DEFAULT (sysdatetime()) NOT NULL,
-    [lastModifiedBy]   VARCHAR (30) DEFAULT (user_name()) NOT NULL,
-    CONSTRAINT [PK_screen] PRIMARY KEY CLUSTERED ([id] ASC),
-    CONSTRAINT [FK_screen_theatre] FOREIGN KEY ([theatreId]) REFERENCES [dbo].[theatre] ([id])
+﻿CREATE TABLE [dbo].[Screen] (
+    [Id]               INT          NOT NULL,
+    [Number]           INT          NOT NULL,
+    [TotalNoOfSeats]   INT          NOT NULL,
+    [ScreenResolution] VARCHAR (30) NOT NULL,
+    [SoundSystem]      VARCHAR (30) NOT NULL,
+    [TheatreId]        INT          NOT NULL,
+    [CreatedOn]        DATETIME     DEFAULT (sysdatetime()) NOT NULL,
+    [CreatedBy]        VARCHAR (30) DEFAULT (user_name()) NOT NULL,
+    [LastModifiedOn]   DATETIME     DEFAULT (sysdatetime()) NOT NULL,
+    [LastModifiedBy]   VARCHAR (30) DEFAULT (user_name()) NOT NULL,
+    CONSTRAINT [PK_Screen] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Screen_Theatre] FOREIGN KEY ([TheatreId]) REFERENCES [dbo].[Theatre] ([Id])
 );
 
 
 GO
 
-CREATE TRIGGER [dbo].[Trigger_screen]
-    ON [dbo].[screen]
+CREATE TRIGGER [dbo].[Trigger_Screen]
+    ON [dbo].[Screen]
     FOR UPDATE
     AS
     BEGIN
-        UPDATE [dbo].[screen]
-        SET lastModifiedOn = SYSDATETIME(), lastModifiedBy =USER
+        UPDATE [dbo].[Screen]
+        SET LastModifiedOn = SYSDATETIME(), LastModifiedBy =USER
         FROM Inserted i
-        WHERE screen.id = i.id
+        WHERE Screen.Id = i.Id
     END

@@ -4,15 +4,22 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-
+using Services.CityService;
+using Models.CoreModels;
 namespace BookMyShow.Controllers
 {
     public class CityController : ApiController
     {
-        // GET: api/City
-        public IEnumerable<string> Get()
+        private readonly ICityService CityService;
+        public CityController(ICityService cityService)
         {
-            return new string[] { "value1", "value2" };
+            CityService=cityService;
+
+        }
+        // GET: api/City
+        public IEnumerable<CityDTO> Get()
+        {
+            return CityService.GetCities();
         }
 
         // GET: api/City/5

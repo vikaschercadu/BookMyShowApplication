@@ -15,6 +15,7 @@ using Microsoft.Owin.Security.DataProtection;
 using Models;
 using Owin;
 using Services.AddressService;
+using Services.CityService;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using SimpleInjector.Lifestyles;
@@ -45,6 +46,7 @@ namespace BookMyShow
             container.RegisterInstance<MapperConfiguration>(config);
             container.Register<IMapper>(() => config.CreateMapper(container.GetInstance));
             container.Register<IAddressService, AddressService>();
+            container.Register<ICityService, CityService>();
             container.RegisterSingleton<PetaPoco.Database>(() => new PetaPoco.Database("connString"));
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
             container.RegisterInstance<IAppBuilder>(app);

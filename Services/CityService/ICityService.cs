@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Models.CoreModels;
 namespace Services.CityService
 {
-    interface ICityService
+    public interface ICityService
     {
         IEnumerable<CityDTO> GetCities();
         CityDTO GetCity(int id);

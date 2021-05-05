@@ -50,7 +50,7 @@ namespace BookMyShow
             container.RegisterInstance<IAppBuilder>(app);
             container.Register<ApplicationUserManager>(Lifestyle.Singleton);
             container.Register<ApplicationDbContext>(
-                () => new ApplicationDbContext("connString"),
+                () => new ApplicationDbContext(),
                 Lifestyle.Singleton);
             container.Register<IUserStore<ApplicationUser>>(
                 () => new UserStore<ApplicationUser>(

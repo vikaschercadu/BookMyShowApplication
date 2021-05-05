@@ -33,7 +33,7 @@ namespace Services.SeatService
             Database.Execute(query, Mapper.Map<Seat>(seatDTO));
 
         }
-        public void PutSeat(string number, SeatDTO seatDTO)
+        public void PutSeat(string number,int screenId, SeatDTO seatDTO)
         {
             string query = @"UPDATE Seat SET Number=@Number,ScreenId=@ScreenId WHERE Number=@Number AND ScreenId=@ScreenId";
             Database.Execute(query, Mapper.Map<Seat>(seatDTO));

@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Seat] (
-    [number]         VARCHAR (4)  NOT NULL,
+    [Number]         VARCHAR (4)  NOT NULL,
     [ScreenId]       INT          NOT NULL,
     [CreatedOn]      DATETIME     DEFAULT (sysdatetime()) NOT NULL,
     [CreatedBy]      VARCHAR (30) DEFAULT (user_name()) NOT NULL,

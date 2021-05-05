@@ -20,8 +20,8 @@ namespace Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(string connectionString)
-            : base(connectionString, throwIfV1Schema: false)
+        public ApplicationDbContext()
+            : base("connString", throwIfV1Schema: false)
         {
         }
         

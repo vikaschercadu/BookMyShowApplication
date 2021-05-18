@@ -1,35 +1,35 @@
-﻿CREATE TABLE [dbo].[movieTicket] (
-    [id]             INT          NOT NULL,
-    [userId]         INT          NOT NULL,
-    [seatNumber]     VARCHAR (4)  NOT NULL,
-    [showId]         INT          NOT NULL,
-    [showDate]       DATE         NOT NULL,
-    [screenId]       INT          NOT NULL,
-    [status]         INT          NOT NULL,
+﻿CREATE TABLE [dbo].[MovieTicket] (
+    [Id]             INT          NOT NULL,
+    [UserId]         INT          NOT NULL,
+    [SeatNumber]     VARCHAR (4)  NOT NULL,
+    [ShowId]         INT          NOT NULL,
+    [ShowDate]       DATE         NOT NULL,
+    [ScreenId]       INT          NOT NULL,
+    [Status]         INT          NOT NULL,
     [TicketPrice]    FLOAT (53)   NOT NULL,
-    [convenienceFee] FLOAT (53)   NOT NULL,
+    [ConvenienceFee] FLOAT (53)   NOT NULL,
     [TotalAmount]    FLOAT (53)   NOT NULL,
-    [createdOn]      DATETIME     DEFAULT (sysdatetime()) NOT NULL,
-    [createdBy]      VARCHAR (30) DEFAULT (user_name()) NOT NULL,
-    [lastModifiedOn] DATETIME     DEFAULT (sysdatetime()) NOT NULL,
-    [lastModifiedBy] VARCHAR (30) DEFAULT (user_name()) NOT NULL,
-    CONSTRAINT [PK_movieTicket] PRIMARY KEY CLUSTERED ([id] ASC, [seatNumber] ASC),
-    CONSTRAINT [CK_seat_status] CHECK ([status]=(2) OR [status]=(1) OR [status]=(0)),
-    CONSTRAINT [FK_movieTicket_seat] FOREIGN KEY ([seatNumber], [screenId]) REFERENCES [dbo].[seat] ([number], [screenId]),
-    CONSTRAINT [FK_movieTicket_show] FOREIGN KEY ([showId], [showDate]) REFERENCES [dbo].[show] ([id], [showDate]),
-    CONSTRAINT [FK_movieTicket_user] FOREIGN KEY ([userId]) REFERENCES [dbo].[user] ([id])
+    [CreatedOn]      DATETIME     DEFAULT (sysdatetime()) NOT NULL,
+    [CreatedBy]      VARCHAR (30) DEFAULT (user_name()) NOT NULL,
+    [LastModifiedOn] DATETIME     DEFAULT (sysdatetime()) NOT NULL,
+    [LastModifiedBy] VARCHAR (30) DEFAULT (user_name()) NOT NULL,
+    CONSTRAINT [PK_MovieTicket] PRIMARY KEY CLUSTERED ([Id] ASC, [SeatNumber] ASC),
+    CONSTRAINT [CK_MovieTicket_Status] CHECK ([Status] IN (0,1,2)),
+    CONSTRAINT [FK_MovieTicket_Seat] FOREIGN KEY ([SeatNumber], [ScreenId]) REFERENCES [dbo].[Seat] ([Number], [ScreenId]),
+    CONSTRAINT [FK_MovieTicket_Show] FOREIGN KEY ([ShowId], [ShowDate]) REFERENCES [dbo].[Show] ([Id], [ShowDate]),
+    CONSTRAINT [FK_MovieTicket_User] FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([Id])
 );
 
 
 GO
 
-CREATE TRIGGER [dbo].[Trigger_movieTicket]
-    ON [dbo].[movieTicket]
+CREATE TRIGGER [dbo].[Trigger_MovieTicket]
+    ON [dbo].[MovieTicket]
     FOR UPDATE
     AS
     BEGIN
-        UPDATE [dbo].[movieTicket]
-        SET lastModifiedOn = SYSDATETIME(), lastModifiedBy =USER
+        UPDATE [dbo].[MovieTicket]
+        SET LastModifiedOn = SYSDATETIME(), LastModifiedBy =USER
         FROM Inserted i
-        WHERE movieTicket.id = i.id
+        WHERE MovieTicket.Id = i.Id
     END

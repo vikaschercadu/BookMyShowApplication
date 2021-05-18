@@ -1,28 +1,28 @@
-﻿CREATE TABLE [dbo].[theatre] (
-    [id]                 INT          NOT NULL,
-    [name]               VARCHAR (45) NOT NULL,
-    [noOfScreens]        INT          NOT NULL,
-    [isParkingAvailable] BIT          NOT NULL,
-    [addressId]          INT          NOT NULL,
-    [createdOn]          DATETIME     DEFAULT (sysdatetime()) NOT NULL,
-    [createdBy]          VARCHAR (30) DEFAULT (user_name()) NOT NULL,
-    [lastModifiedOn]     DATETIME     DEFAULT (sysdatetime()) NOT NULL,
-    [lastModifiedBy]     VARCHAR (30) DEFAULT (user_name()) NOT NULL,
-    CONSTRAINT [PK_theatre] PRIMARY KEY CLUSTERED ([id] ASC),
-    CONSTRAINT [CK_theatre_isParkingAvailable] CHECK ([isParkingAvailable]=(1) OR [isParkingAvailable]=(0)),
-    CONSTRAINT [FK_theatre_address] FOREIGN KEY ([addressId]) REFERENCES [dbo].[address] ([id])
+﻿CREATE TABLE [dbo].[Theatre] (
+    [Id]                 INT          NOT NULL,
+    [Name]               VARCHAR (45) NOT NULL,
+    [NoOfScreens]        INT          NOT NULL,
+    [IsParkingAvailable] BIT          NOT NULL,
+    [AddressId]          INT          NOT NULL,
+    [CreatedOn]          DATETIME     DEFAULT (sysdatetime()) NOT NULL,
+    [CreatedBy]          VARCHAR (30) DEFAULT (user_name()) NOT NULL,
+    [LastModifiedOn]     DATETIME     DEFAULT (sysdatetime()) NOT NULL,
+    [LastModifiedBy]     VARCHAR (30) DEFAULT (user_name()) NOT NULL,
+    CONSTRAINT [PK_Theatre] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [CK_Theatre_IsParkingAvailable] CHECK ([IsParkingAvailable]=(1) OR [IsParkingAvailable]=(0)),
+    CONSTRAINT [FK_Theatre_Address] FOREIGN KEY ([AddressId]) REFERENCES [dbo].[Address] ([Id])
 );
 
 
 GO
 
-CREATE TRIGGER [dbo].[Trigger_theatre]
-    ON [dbo].[theatre]
+CREATE TRIGGER [dbo].[Trigger_Theatre]
+    ON [dbo].[Theatre]
     FOR UPDATE
     AS
     BEGIN
-        UPDATE [dbo].[theatre]
-        SET lastModifiedOn = SYSDATETIME(), lastModifiedBy =USER
+        UPDATE [dbo].[Theatre]
+        SET LastModifiedOn = SYSDATETIME(), LastModifiedBy =USER
         FROM Inserted i
-        WHERE theatre.id = i.id
+        WHERE Theatre.Id = i.Id
     END

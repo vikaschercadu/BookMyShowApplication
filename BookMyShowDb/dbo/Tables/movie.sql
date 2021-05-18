@@ -1,28 +1,28 @@
-﻿CREATE TABLE [dbo].[movie] (
-    [id]             INT           NOT NULL,
-    [title]          VARCHAR (45)  NOT NULL,
-    [language]       VARCHAR (45)  NOT NULL,
-    [genre]          VARCHAR (45)  NOT NULL,
-    [runningTime]    VARCHAR (8)   NOT NULL,
-    [releaseDate]    DATE          NOT NULL,
-    [imageUrl]       VARCHAR (100) NOT NULL,
-    [createdOn]      DATETIME      DEFAULT (sysdatetime()) NOT NULL,
-    [createdBy]      VARCHAR (30)  DEFAULT (user_name()) NOT NULL,
-    [lastModifiedOn] DATETIME      DEFAULT (sysdatetime()) NOT NULL,
-    [lastModifiedBy] VARCHAR (30)  DEFAULT (user_name()) NOT NULL,
-    CONSTRAINT [PK_movie] PRIMARY KEY CLUSTERED ([id] ASC)
+﻿CREATE TABLE [dbo].[Movie] (
+    [Id]             INT           NOT NULL,
+    [Title]          VARCHAR (45)  NOT NULL,
+    [Language]       VARCHAR (45)  NOT NULL,
+    [Genre]          VARCHAR (45)  NOT NULL,
+    [RunningTime]    VARCHAR (8)   NOT NULL,
+    [ReleaseDate]    DATE          NOT NULL,
+    [ImageUrl]       VARCHAR (100) NOT NULL,
+    [CreatedOn]      DATETIME      DEFAULT (sysdatetime()) NOT NULL,
+    [CreatedBy]      VARCHAR (30)  DEFAULT (user_name()) NOT NULL,
+    [LastModifiedOn] DATETIME      DEFAULT (sysdatetime()) NOT NULL,
+    [LastModifiedBy] VARCHAR (30)  DEFAULT (user_name()) NOT NULL,
+    CONSTRAINT [PK_Movie] PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
 
 GO
 
-CREATE TRIGGER [dbo].[Trigger_movie]
-    ON [dbo].[movie]
+CREATE TRIGGER [dbo].[Trigger_Movie]
+    ON [dbo].[Movie]
     FOR UPDATE
     AS
     BEGIN
-        UPDATE [dbo].[movie]
-        SET lastModifiedOn = SYSDATETIME(), lastModifiedBy =USER
+        UPDATE [dbo].[Movie]
+        SET LastModifiedOn = SYSDATETIME(), LastModifiedBy =USER
         FROM Inserted i
-        WHERE movie.id = i.id
+        WHERE Movie.Id = i.Id
     END
